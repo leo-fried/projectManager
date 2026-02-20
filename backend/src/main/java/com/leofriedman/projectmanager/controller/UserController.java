@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 import java.util.List;
 
-import com.leofriedman.projectmanager.dto.LoginRequest;
 import com.leofriedman.projectmanager.dto.UserRegistration;
 import com.leofriedman.projectmanager.model.User;
 import com.leofriedman.projectmanager.service.UserService;
@@ -34,19 +33,6 @@ public class UserController
     public User createUser(@Valid @RequestBody UserRegistration userRegistration)
     {
         return service.registerUser(userRegistration);
-    }
-    @PostMapping("/login")
-    public boolean loginUser(@Valid @RequestBody LoginRequest loginRequest)
-    {
-        User user = service.getUserByUsername(loginRequest.getUsername());
-        if(user != null && service.validatePassword(loginRequest.getPassword(), user.getPassword()))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 
     @PutMapping("/{id}")

@@ -34,16 +34,6 @@ public class UserService {
             throw new RuntimeException("Failed to register user: " + e.getMessage());
         }
     }
-    /**
-     * Validates the inputted password against the saved hashed password
-     * @param inputtedPassword the password inputted by the user during login
-     * @param savedPassword the hashed password stored in the database
-     * @return true if the inputted password matches the saved password, false otherwise
-     */
-    public boolean validatePassword(String inputtedPassword, String savedPassword)
-    {
-        return passwordEncoder.matches(inputtedPassword, savedPassword);
-    }
 
 
     public List<User> getAllUsers()

@@ -1,3 +1,10 @@
+const token = sessionStorage.getItem("jwt");
+if(!token) 
+{
+    window.location.href="../index.html"; // Log out user if their token has expired
+    alert("You have been logged out for security reasons. Please log back in.");
+}
+
 const hamburger = document.getElementById("hamburger");
 const logo = document.getElementById("logo");
 const settings = document.getElementById("settings");
@@ -23,7 +30,8 @@ settings.addEventListener("click", () => {
 });
 
 logout.addEventListener("click", () => {
-    alert("Logout functionality coming soon!");
+    sessionStorage.removeItem("jwt"); // Remove token
+    window.location.href="../index.html"; // Log out user
 });
 
 newEntry.addEventListener("click", () => {

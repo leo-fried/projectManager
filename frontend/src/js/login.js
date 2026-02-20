@@ -22,27 +22,31 @@ register.addEventListener("click", () => {
 login.addEventListener("click", () => {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value; 
+
+    const basicAuth =btoa(`${username}:${password}`);
     // Send HTTP request to backend to authenticate user
-    fetch("http://localhost:8080/api/users/login", {
+    fetch("http://localhost:8080/token", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username, password })
+            "Authorization": `Basic ${basicAuth}`
+        }//,
+        //body: JSON.stringify({ username, password })
     })
     .then(response => {
         if (response.ok) {
-            return response.json();
+            return response.text();
         } else {
-            alert("Login failed.");
+            throw new Error("Login Failed");
         }
     })
     // If login successful, go to dashboard, else display error
-    .then(data => {
-        if(data) {
-            window.location.href = "./src/dashboard.html";
-        } else {
-            incorrectCredentials();
-        }
+    .then(token => {
+        sessionStorage.setItem("jwt", token);
+        window.location.href = "./src/dashboard.html";
+        
     })
+    .catch(error => {
+        console.error(error);
+        incorrectCredentials();
+    });
 });
