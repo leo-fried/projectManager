@@ -1,3 +1,11 @@
+body{
+    display: flex;
+    justify-content: center;
+}
 #registerButton{
     margin-top: 5vh;
+}
+#register-container{
+    margin-top: 20vh;
+    width: 800px;
 }

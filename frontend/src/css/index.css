@@ -1,0 +1,18 @@
+body{
+    overflow-y: hidden;
+}
+#welcome-header {
+    text-align: center;
+    margin-top: 10vh;
+}
+#login-container {
+    padding: 3.25vh 0;
+    width: 800px;
+    min-width: 800px
+
+}
+@media (max-width: 1000px) {
+    .column{
+        display: none;
+    }
+}

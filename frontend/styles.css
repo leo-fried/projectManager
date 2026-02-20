@@ -1,22 +1,64 @@
-.container{
-    width: 40vw;
-    margin: 15vh auto;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap');
+
+.container {
+    flex: 1 1 40%;          /* grow/shrink 1, basis 40% */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 5vh 0;
-    border: 1px solid #6cb3ff;
+    border: 1px solid #e9ff6c;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     background-color: #ffffff;
 }
-.header{
-    font-size: 3vw;
-    text-align: center;
-    margin-bottom: 2vh;
+.toolbar{
+    position:fixed;
+    width: 100%;
+    height: 40px;
+    min-height: auto;
+    top: 0;
+    left: 0;
+    background-color:rgb(255, 255, 255);
+
+    display: flex;
+    justify-content:space-between;
+    align-content: center;
+    padding: 1%;
+}
+.logo{
+    cursor: pointer;
+}
+#logo-header{
+    justify-content: flex-start;
+}
+
+
+.toolbar-header{    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    margin-left: 1vw;
+    color: #000000;
+}
+.header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.5vw;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    margin-bottom: 3vh;
+}
+.sub-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5vw;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    margin-bottom: 3vh;
 }
 .text{
-    font-size: 1vw;
-    text-align: left;
-    margin-left: 14vw;
-    margin-bottom: 2vh;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
 }
 .text-error{
     display: none;
@@ -29,31 +71,64 @@
 .input-field{
     width: 25%;
     padding: 1vw;
-    margin-left: 35%;
-    margin-bottom: 2vh;
+    margin-top: 2vh;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+.input-field::placeholder {
+  font-weight: 400;
+  color: #888;
+  font-size: 1vw;
 }
 #loginButton{
     margin-top: 5vh;
 }
 .button{
-    width: 30%;
+    width: 28%;
     padding: 1vw;
-    margin-left: 35%;
     margin-bottom: 2vh;
     border: none;
     border-radius: 5px;
-    background-color: #6cb3ff;
+    background-color: #efe22a;
     color: white;
-    font-size: 1vw;
+    font-weight: 600;
+    font-size: 1.1vw;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 8px rgba(255, 226, 42, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 .button:hover{
-    background-color: #5aa0e0;
+    background-color: #cfc310;
+    box-shadow: 0 6px 12px rgba(207, 195, 16, 0.5)
 }
-.collumn{
+.image{
+    width: 100%;
+    height: auto;
+    border: 1px solid #e9ff6c;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+}
+.row {
+    margin-top: 10vh;
     display: flex;
+    flex-direction: row;
+    align-items: center;    /* vertical centering */
+    justify-content: center; /* center horizontally */
+    gap: 2vw;
+    flex-wrap: nowrap;      /* prevent stacking */
+}
+.column {
+    flex: 1 1 40%;          /* grow 1, shrink 1, basis 40% */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+.pages{
+    color: #cfc310;
+    cursor: pointer;
 }
 .options{
     cursor: pointer;
@@ -61,16 +136,27 @@
 .options:hover{
     transform: scale(1.1);
 }
+#hamburger{
+    font-size: 20px;
+    margin-right: 2vw;
+}
+#dash-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
 .pop-up{
     display: none;
+    margin-right: 2vw;
     position: absolute;
-    border: 1px solid #6cb3ff;
+    border: 1px solid #e9ff6c;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff    
 }
 .pop-up-text{
-    color: #6cb3ff;
+    color: #cfc310;
     text-align: left;
     font-size: 15px;
     margin-left: 1vw;
@@ -79,5 +165,22 @@
     cursor: pointer;
 }
 .pop-up-text:hover{
-    color:#5aa0e0;
+    color:#a0960e;
+}
+.exit{
+    position: absolute;
+    top: -1vw;
+    right: 5px;
+    font-size: 1.5vw;
+    cursor: pointer;
+}
+.footer-text{
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    color: #888;
+    font-size: 0.8vw;
+    margin-top: 5vh;
+}
+#footer-span{
+    font-size: 0.8vw;
 }

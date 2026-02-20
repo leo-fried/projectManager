@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Iron Hive Registration</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="./css/register.css">
+    <div class="toolbar">
+        <div class="toolbar" id="logo-header">
+            <img src="../assets/logo.png" alt="logo" class="logo" id="logo">
+            <h1 class="toolbar-header">Iron Hive</h1>
+        </div>
+    </div>
 </head>
-<body style="background-color: rgb(181, 229, 246);">
-    <div class="container">
-        <h1 class="header">Welcome!</h1>
-        <p class="text">Email: </p>
+<body style="background-color: rgb(255, 251, 200);">
+    
+    <div class="container" id ="register-container">
+        <h1 class="header">Create Account</h1>
         <p class="text-error"></p>
-        <input type="text" class="input-field" id="email" name="email">
-        <p class="text">Username: </p>
+        <input type="text" class="input-field" id="email" name="email" placeholder="Email">
         <p class="text-error"></p>
-        <input type="text" class="input-field" id="username" name="username">
-        <p class="text">Password: </p>
+        <input type="text" class="input-field" id="username" name="username" placeholder="Username">
         <p class="text-error"></p>
-        <input type="password" class="input-field" id="password" name="password">
+        <input type="password" class="input-field" id="password" name="password" placeholder="Password">
         <button class="button" id="registerButton">Register</button>
         <button class="button" id="backButton">Back</button>
     </div>
     <script src="./js/register.js"></script>
 </body>
+<footer>
+    <p class="footer-text"><span class ="pop-up-text">About</span> © 2026 Iron Hive. All rights reserved.</p>
+</footer>
 </html>

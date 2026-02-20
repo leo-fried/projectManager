@@ -3,31 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Iron Hive Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="./css/dashboard.css">
-</head>
-<body style="background-color: rgb(181, 229, 246);">
-    <div class="toolbar">
-        <h1 class="text"id="title">Project Manager</h1>
-        <h1 class="options" id="hamburger">&#9776;</h1>
+    <div class="toolbar" id="logo-header">
+        <img src="../assets/logo.png" alt="logo" class="logo" id="logo">
+        <h1 class="toolbar-header" id="dash-header">Iron Hive
+            <span class="pages" id="lifts">Lifts</span>
+            <span class="pages" id="calories">Calorie Tracking</span>
+            <span class="pages" id="friends">Friends</span>
+            <span class="pages" id="programs">Programs</span>
+            <span class="pages" id="progress">Progress</span>
+            <span class="options" id="hamburger">&#9776;</span>
+        </h1>
         <div class="pop-up" id="options-pop-up">
             <p class="pop-up-text" id="settings">Account Settings</p>
             <p class="pop-up-text" id="logout">Logout</p>
         </div>
     </div>
-    <div class="container" id="message">
-        <h1 class="header">Welcome Back User!</h1>
+</head>
+<body style="background-color: rgb(255, 251, 200);">
+    <div id ="main">
+        <h1 class="header" id="welcome-header">Track your lifts. See yourself progress.</h1>
+        <div class ="row" id="row1">
+            <div class="column">
+                <div class="container" id="journal-container">
+                    <h1 class="sub-header">Journal</h1>
+                    <button class="button" id="new-entry">+ New Entry</button>
+                    <p class="entry-information">Date</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="container" id="journal-entry-container">
+                    <h1 class="sub-header">Current lift</h1>
+                    <button class="button" id="add-lift">+ Add Exercise</button>
+                    <p class="lift-information">Exercise</p>
+                </div>
+            </div>
+        </div> 
     </div>
-    <div class="collumn">
-        <div class="dashboard" id="dashboard0">
-            <h1 class="header">Projects</h1>
-            <button class="button" id="new">+ New Project</button>
-            <p class="projectList">No projects... Why not create one?</p>
-        </div>
-        <div class="dashboard" id="dashboard1">
-        </div>
-    </div>
+    <div class = "pop-up" id="entry-pop-up">
+        <p class ="exit" id="entry-exit">❌</p>
+        <h1 class="sub-header">New Journal Entry</h1>
+        <input type="text" class="input-field" id="entry-title" name="entry-title" placeholder="Lift Title (Required)">
+        <textarea class="input-field" id="entry-description" name="entry-description" placeholder="Lift Description (Optional)" style="resize: none;"></textarea>
+        <input type="date" class="input-field" id="entry-date" name="entry-date" placeholder="Lift Date">
+        <button class="button" id="save-entry">Save Entry</button>
     <script src="./js/dashboard.js"></script>
 </body>
 </html>

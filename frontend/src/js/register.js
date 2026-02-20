@@ -1,5 +1,6 @@
 const register = document.getElementById("registerButton");
 const back = document.getElementById("backButton");
+const logo = document.getElementById("logo");
 
 let emailInput = document.getElementById("email");
 let usernameInput = document.getElementById("username");
@@ -9,6 +10,10 @@ const border = emailInput.style.borderColor;
 
 const errors = document.getElementsByClassName("text-error");
 let errs = Array.from(errors);
+
+logo.addEventListener("click", () => {
+    window.location.href = "../index.html";
+});
 
 back.addEventListener("click", () => {
     window.location.href = "../index.html";

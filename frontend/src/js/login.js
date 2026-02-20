@@ -1,5 +1,6 @@
 const register = document.getElementById("registerButton");
 const login = document.getElementById("loginButton");
+const logo = document.getElementById("logo");
 
 let usernameInput = document.getElementById("username");
 let passwordInput = document.getElementById("password");
@@ -11,6 +12,9 @@ function incorrectCredentials()
     passwordInput.style.borderColor = "red";
     errorMsg.style.display = "block"
 }
+logo.addEventListener("click", () => {
+    window.location.href = "./index.html";
+});
 register.addEventListener("click", () => {
     window.location.href = "./src/register.html";
 });
@@ -34,6 +38,11 @@ login.addEventListener("click", () => {
         }
     })
     // If login successful, go to dashboard, else display error
-    .then(data => data ? window.location.href = "./src/dashboard.html": incorrectCredentials());
-    
+    .then(data => {
+        if(data) {
+            window.location.href = "./src/dashboard.html";
+        } else {
+            incorrectCredentials();
+        }
+    })
 });

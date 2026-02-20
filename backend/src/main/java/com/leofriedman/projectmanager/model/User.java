@@ -1,5 +1,7 @@
 package com.leofriedman.projectmanager.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 /**
@@ -11,6 +13,9 @@ public class User {
     @Id // Primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // User ID
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Lift> lifts; // List of Lifts associated with the User
 
     // Name of User
     private String username;
@@ -97,5 +102,12 @@ public class User {
      */
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
+    }
+
+    public List<Lift> getLifts() {
+        return lifts;
+    }
+    public void setLifts(List<Lift> lifts) {
+        this.lifts = lifts;
     }
 }   

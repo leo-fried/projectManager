@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Iron Hive Login</title>
+    <link rel="icon" type="image/x-icon" href="./assets/logo.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <div class="toolbar">
+        <div class="toolbar" id="logo-header">
+            <img src="./assets/logo.png" alt="logo" class="logo" id="logo">
+            <h1 class="toolbar-header">Iron Hive</h1>
+        </div>
+    </div>
 </head>
-<body style="background-color: rgb(181, 229, 246);">
-    <div class="container">
-        <h1 class="header">Login</h1>
-        <p class="text">Username: </p>
-        <input type="text" class="input-field" id="username" name="username">
-        <p class="text">Password: </p>
-        <input type="password" class="input-field" id="password" name="password">
-        <p class="text-error" id="error">*Incorrect Username or Password*</p>
-        <button class="button" id="loginButton">Login</button>
-        <button class="button" id="registerButton">Register</button>
+<body style="background-color: rgb(255, 251, 200);">
+    <h1 class="header" id="welcome-header">Your friends. Your tools. All in one place.</h1>
+    <div class="row">
+        <div class="column">
+            
+            <img src="assets/login.jpeg" alt="ronnie" class="image">
+        </div>
+        <div class="container" id="login-container">
+            <h1 class="header">Log into Iron Hive</h1>
+            <input type="text" class="input-field" id="username" name="username" placeholder="Username">
+            <input type="password" class="input-field" id="password" name="password" placeholder="Password">
+            <p class="text-error" id="error">*Incorrect Username or Password*</p>
+            <button class="button" id="loginButton">Login</button>
+            <button class="button" id="registerButton">Register</button>
+        </div>
     </div>
     <script src="./src/js/login.js"></script>
 </body>
+<footer>
+    <p class="footer-text"><span class ="pop-up-text" id="footer-span">About</span> © 2026 Iron Hive. All rights reserved.</p>
+</footer>
 </html>

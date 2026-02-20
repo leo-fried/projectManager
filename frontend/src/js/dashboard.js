@@ -1,17 +1,81 @@
 const hamburger = document.getElementById("hamburger");
-let popUp = document.getElementById("options-pop-up");
+const logo = document.getElementById("logo");
+const settings = document.getElementById("settings");
+const logout = document.getElementById("logout");
+const newEntry = document.getElementById("new-entry");
+const entryExit = document.getElementById("entry-exit");
+const entrySave = document.getElementById("save-entry");
+
+let main = document.getElementById("main");
+let optionPopUp = document.getElementById("options-pop-up");
+let entryPopUp = document.getElementById("entry-pop-up");
+
+let titleInput = document.getElementById("entry-title");
+let descriptionInput = document.getElementById("entry-description");
+let dateInput = document.getElementById("entry-date");
+
+logo.addEventListener("click", () => {
+    window.location.href = "dashboard.html";
+});
+
+settings.addEventListener("click", () => {
+    alert("Account settings coming soon!");
+});
+
+logout.addEventListener("click", () => {
+    alert("Logout functionality coming soon!");
+});
+
+newEntry.addEventListener("click", () => {
+    main.style.display = "none";
+    entryPopUp.style.display = "block";
+});
+entryExit.addEventListener("click", () => {
+    titleInput.value = "";
+    descriptionInput.value = "";
+    dateInput.value = "";
+    entryPopUp.style.display = "none";
+    main.style.display = "block";
+});
 
 window.addEventListener("click", () =>{
-    popUp.style.display = "none";
+    optionPopUp.style.display = "none";
 });
 
 hamburger.addEventListener("click", (event) => {
     event.stopPropagation();
-    popUp.style.display = popUp.style.display === "block" ? "none": "block"
+    optionPopUp.style.display = optionPopUp.style.display === "block" ? "none": "block"
 });
 
-popUp.addEventListener("click", (event)=>{
+optionPopUp.addEventListener("click", (event)=>{
     event.stopPropagation();
 });
 
 
+entrySave.addEventListener("click", () => {
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const date = dateInput.value;
+    // Send HTTP request to backend to create journal entry
+    fetch("http://localhost:8080/api/lifts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ title, description, date })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Journal entry created successfully!");
+            entryPopUp.style.display = "none";
+            main.style.display = "block";
+            // Optionally, refresh the list of journal entries here
+        } else {
+            alert("Failed to create journal entry.");
+        }
+        titleInput.value = "";
+        descriptionInput.value = "";
+        dateInput.value = "";
+
+    });
+});
